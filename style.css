@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0f1e;
+  --card: #121a2b;
+  --line: #23385d;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --cyan: #06b6d4;
+  --blue: #2563eb;
+  --yellow: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  align-items: center;
+  background: rgba(10, 15, 30, 0.96);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 max(24px, calc((100vw - 1100px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: var(--cyan);
+  font-family: Consolas, monospace;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.container {
+  margin: auto;
+  max-width: 1100px;
+  padding: 0 24px;
+}
+
+section {
+  border-bottom: 1px solid var(--line);
+  padding: 80px 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(44px, 7vw, 82px);
+  letter-spacing: -1px;
+  margin: 8px 0;
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin-bottom: 32px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+p {
+  color: var(--muted);
+}
+
+.eyebrow,
+.card span,
+.timeline span {
+  color: var(--cyan);
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid,
+.two-column {
+  align-items: center;
+  display: grid;
+  gap: 48px;
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.role {
+  color: var(--cyan);
+  font-family: Consolas, monospace;
+  margin-bottom: 16px;
+}
+
+.intro {
+  font-size: 17px;
+  max-width: 650px;
+}
+
+.photo-card {
+  justify-self: end;
+  text-align: center;
+}
+
+.photo-card img {
+  aspect-ratio: 1;
+  border: 3px solid var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(6, 182, 212, 0.22);
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  width: min(290px, 70vw);
+}
+
+.photo-card p {
+  color: var(--yellow);
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  margin-top: 14px;
+}
+
+.tags,
+.buttons,
+.stats,
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags {
+  margin: 24px 0;
+}
+
+.tags span {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.stats {
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.stats strong {
+  font-size: 24px;
+}
+
+.stats span {
+  color: var(--muted);
+  display: block;
+  font-family: Consolas, monospace;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.btn,
+.socials a,
+.project a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: inline-block;
+  padding: 10px 16px;
+}
+
+.btn.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.info-list {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 24px;
+}
+
+.info-list li {
+  color: var(--muted);
+}
+
+.info-list b {
+  color: var(--text);
+}
+
+.timeline {
+  border-left: 1px solid var(--cyan);
+  display: grid;
+  gap: 28px;
+  padding-left: 28px;
+}
+
+.timeline article {
+  position: relative;
+}
+
+.timeline article::before {
+  background: var(--cyan);
+  border-radius: 50%;
+  content: "";
+  height: 10px;
+  left: -34px;
+  position: absolute;
+  top: 6px;
+  width: 10px;
+}
+
+.card-grid,
+.skill-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  display: block;
+  padding: 22px;
+}
+
+.card:hover {
+  border-color: var(--cyan);
+  text-decoration: none;
+}
+
+.card p {
+  margin-bottom: 10px;
+}
+
+.card small {
+  color: var(--yellow);
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+.project p {
+  flex: 1;
+}
+
+.project .tags {
+  margin: 12px 0 18px;
+}
+
+.contact {
+  max-width: 720px;
+  text-align: center;
+}
+
+.email {
+  color: var(--text);
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.socials {
+  justify-content: center;
+}
+
+.socials a {
+  color: var(--muted);
+}
+
+footer {
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1100px;
+  padding: 28px 24px;
+}
+
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-grid,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-card {
+    justify-self: center;
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
