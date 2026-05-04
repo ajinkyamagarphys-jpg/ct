@@ -3,1250 +3,352 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajinkya Magar — Portfolio</title>
+  <title>Ajinkya Magar | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-
-    /* ── RESET ── */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    /* ── VARIABLES ── */
-    :root {
-      --bg:      #0a0f1e;
-      --surface: #111827;
-      --card:    #1a2236;
-      --border:  #1e3a5f;
-      --blue:    #2563eb;
-      --cyan:    #06b6d4;
-      --white:   #f1f5f9;
-      --muted:   #64748b;
-      --accent:  #f59e0b;
-      --green:   #22c55e;
-      --violet:  #a78bfa;
-      --radius:  12px;
-    }
-
-    /* ── BASE ── */
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--white);
-      line-height: 1.6;
-    }
-
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: rgba(10, 15, 30, 0.96);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-    }
-
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-
-    .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--cyan);
-      letter-spacing: 1px;
-    }
-
-    .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 4px;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 6px 12px;
-      font-size: 13px;
-      color: var(--muted);
-      border-radius: 6px;
-      transition: color 0.2s, background-color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--cyan);
-      background-color: rgba(6, 182, 212, 0.08);
-      text-decoration: none;
-    }
-
-    /* ── LAYOUT ── */
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    section { padding: 80px 0; }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 48px;
-      color: var(--white);
-    }
-
-    .section-title span { color: var(--cyan); }
-
-    .divider {
-      max-width: 1100px;
-      margin: 0 auto;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--border), transparent);
-    }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 3px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--cyan);
-    }
-
-    .hero-name {
-      font-size: clamp(44px, 6vw, 80px);
-      font-weight: 700;
-      letter-spacing: -2px;
-      line-height: 1;
-      margin-bottom: 16px;
-      color: var(--white);
-    }
-
-    .hero-role {
-      font-family: 'Space Mono', monospace;
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .hero-role span { color: var(--cyan); }
-
-    .hero-bio {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-      max-width: 520px;
-      margin-bottom: 24px;
-    }
-
-    .hero-bio strong { color: var(--white); font-weight: 500; }
-
-    /* tags */
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-
-    .tag {
-      padding: 5px 12px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 12px;
-      color: var(--cyan);
-      background: rgba(6, 182, 212, 0.06);
-    }
-
-    /* stats */
-    .hero-stats { display: flex; gap: 28px; margin-bottom: 28px; }
-
-    .stat-num {
-      font-weight: 700;
-      font-size: 30px;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .stat-num span { color: var(--cyan); }
-
-    .stat-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1.5px;
-      margin-top: 4px;
-    }
-
-    /* buttons */
-    .cta-row { display: flex; gap: 12px; margin-bottom: 20px; }
-
-    .btn {
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-block;
-    }
-
-    .btn-primary { background: var(--blue); color: #fff; }
-    .btn-primary:hover { background: #1d4ed8; text-decoration: none; }
-
-    .btn-outline { border: 1px solid var(--cyan); color: var(--cyan); }
-    .btn-outline:hover { background: rgba(6, 182, 212, 0.08); text-decoration: none; }
-
-    /* social */
-    .social-row { display: flex; gap: 8px; flex-wrap: wrap; }
-
-    .social-pill {
-      padding: 6px 13px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 12px;
-      color: var(--muted);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .social-pill:hover {
-      color: var(--cyan);
-      border-color: var(--cyan);
-      text-decoration: none;
-    }
-
-    /* photo */
-    .hero-photo-wrap {
-      position: relative;
-      width: 270px;
-      height: 270px;
-      flex-shrink: 0;
-    }
-
-    .hero-photo-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-    }
-
-    .hero-photo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px dashed rgba(6,182,212,0.2);
-    }
-
-    .hero-photo {
-      width: 270px;
-      height: 270px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid var(--cyan);
-      display: block;
-      box-shadow: 0 0 50px rgba(6,182,212,0.25);
-    }
-
-    .status-badge {
-      position: absolute;
-      bottom: 12px;
-      right: -8px;
-      background: var(--card);
-      border: 1px solid rgba(34,197,94,0.4);
-      color: var(--green);
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 1px;
-      padding: 5px 10px;
-      border-radius: 100px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-
-    .about-text {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .about-text strong { color: var(--white); }
-    .about-text p { margin-bottom: 16px; }
-
-    .info-list { list-style: none; display: grid; gap: 12px; }
-
-    .info-list li {
-      display: flex;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .info-list li strong {
-      color: var(--white);
-      font-size: 11px;
-      font-family: 'Space Mono', monospace;
-      letter-spacing: 0.5px;
-      min-width: 80px;
-      flex-shrink: 0;
-    }
-
-    /* ── TIMELINE ── */
-    .timeline { position: relative; padding-left: 40px; }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--cyan), transparent 90%);
-    }
-
-    .tl-item { position: relative; margin-bottom: 44px; }
-
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -44px;
-      top: 8px;
-      width: 9px;
-      height: 9px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(6,182,212,0.5);
-    }
-
-    .tl-year {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--accent);
-      letter-spacing: 2px;
-      margin-bottom: 6px;
-    }
-
-    .tl-role { font-size: 18px; font-weight: 600; margin-bottom: 3px; }
-    .tl-org { font-size: 13px; color: var(--cyan); margin-bottom: 8px; }
-    .tl-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 640px; }
-
-    /* ── CERTIFICATIONS ── */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 14px;
-    }
-
-    .cert-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      transition: border-color 0.2s, transform 0.2s;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .cert-card:hover {
-      border-color: var(--cyan);
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-
-    .cert-card.achievement { border-color: rgba(245,158,11,0.35); }
-    .cert-card.achievement .cert-icon {
-      background: linear-gradient(135deg, #b45309, var(--accent));
-    }
-
-    .cert-card.anthropic { border-color: rgba(167,139,250,0.3); }
-    .cert-card.anthropic .cert-icon {
-      background: linear-gradient(135deg, #6d28d9, var(--violet));
-    }
-
-    .cert-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 19px;
-      flex-shrink: 0;
-    }
-
-    .cert-name {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 3px;
-      color: var(--white);
-    }
-
-    .cert-issuer {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      margin-bottom: 3px;
-    }
-
-    .cert-date { font-size: 11px; color: var(--accent); }
-
-    .cert-details { flex: 1; }
-
-    .cert-link {
-      display: inline-block;
-      margin-top: 8px;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--cyan);
-      letter-spacing: 1px;
-    }
-
-    /* cert group heading */
-    .cert-group-heading {
-      grid-column: 1 / -1;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 2px;
-      padding: 8px 0 4px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 4px;
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .skill-group {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-
-    .skill-group-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-    .skill-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--white);
-    }
-
-    .skill-list li::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      background: var(--cyan);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ── PROJECTS ── */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .proj-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .proj-card:hover {
-      border-color: var(--cyan);
-      transform: translateY(-3px);
-    }
-
-    .proj-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--cyan);
-      opacity: 0.5;
-    }
-
-    .proj-title { font-size: 18px; font-weight: 600; }
-
-    .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
-
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .proj-tag {
-      padding: 3px 9px;
-      background: rgba(37,99,235,0.15);
-      border: 1px solid rgba(37,99,235,0.3);
-      border-radius: 4px;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: #93c5fd;
-    }
-
-    .proj-github {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--muted);
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      width: fit-content;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .proj-github:hover {
-      color: var(--cyan);
-      border-color: var(--cyan);
-      text-decoration: none;
-    }
-
-    .proj-github svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-
-    /* competition badge */
-    .comp-badge {
-      display: inline-block;
-      padding: 2px 8px;
-      background: rgba(245,158,11,0.15);
-      border: 1px solid rgba(245,158,11,0.4);
-      border-radius: 4px;
-      font-size: 11px;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* ── CONTACT ── */
-    .contact-box {
-      max-width: 560px;
-      margin: 0 auto;
-      text-align: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 52px 44px;
-    }
-
-    .contact-desc {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 18px;
-    }
-
-    .contact-email {
-      display: block;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 28px;
-    }
-
-    .contact-email:hover { color: var(--cyan); text-decoration: none; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    footer p {
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    footer span { color: var(--cyan); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 800px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-eyebrow { justify-content: center; }
-      .tags { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .cta-row { justify-content: center; }
-      .social-row { justify-content: center; }
-      .hero-photo-wrap { margin: 0 auto; }
-      .hero-photo-wrap::before,
-      .hero-photo-wrap::after { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .wrap { padding: 0 20px; }
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .contact-box { padding: 36px 24px; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
-      .proj-github { margin: 0 auto; }
-    }
-
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="navbar">
+    <a class="logo" href="#home">AM.</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#certifications">Certificates</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<!-- ── NAV ── -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo">AM<span>.</span></div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#timeline">Timeline</a></li>
-      <li><a href="#certifications">Certificates</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">MIT Academy of Engineering, Pune</p>
+          <h1>Ajinkya Magar</h1>
+          <p class="role">Software Developer & AI Enthusiast</p>
+          <p class="intro">
+            Computer Engineering student with hands-on experience in Python,
+            AI/ML, Linux, web development, hackathons, and competitive coding.
+          </p>
 
-<!-- ── HERO ── -->
-<section id="home">
-  <div class="wrap">
-    <div class="hero-grid">
-
-      <div>
-        <div class="hero-eyebrow">MIT ACADEMY OF ENGINEERING · PUNE</div>
-        <h1 class="hero-name">Ajinkya<br>Magar</h1>
-        <p class="hero-role">
-          <span>~/</span> Software Developer &amp; AI Enthusiast
-        </p>
-        <p class="hero-bio">
-          A passionate developer from <strong>MIT Academy of Engineering, Pune</strong> with hands-on experience in Python, AI/ML, Linux, and competitive coding. Active participant in hackathons, workshops, and coding competitions.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">AI / ML</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Generative AI</span>
-          <span class="tag">Claude · Anthropic</span>
-          <span class="tag">Google Cloud</span>
-          <span class="tag">Competitive Coding</span>
-        </div>
-        <div class="hero-stats">
-          <div>
-            <div class="stat-num">17<span>+</span></div>
-            <div class="stat-label">CERTIFICATES</div>
+          <div class="tags">
+            <span>Python</span>
+            <span>AI / ML</span>
+            <span>Linux</span>
+            <span>Google Cloud</span>
+            <span>Prompt Engineering</span>
           </div>
-          <div>
-            <div class="stat-num">5<span>+</span></div>
-            <div class="stat-label">HACKATHONS</div>
+
+          <div class="stats">
+            <strong>17+ <span>Certificates</span></strong>
+            <strong>5+ <span>Hackathons</span></strong>
+            <strong>2 <span>Wins</span></strong>
           </div>
-          <div>
-            <div class="stat-num">2<span>🏆</span></div>
-            <div class="stat-label">COMPETITIONS WON</div>
+
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#certifications">Certificates</a>
           </div>
         </div>
-        <div class="cta-row">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#certifications" class="btn btn-outline">Certificates</a>
-        </div>
-        <div class="social-row">
-          <a href="mailto:ajinkyamagarphys@gmail.com" class="social-pill">Email</a>
-          <a href="https://linkedin.com/in/ajinkyamagar" class="social-pill" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/ajinkyamagarphys-jpg" class="social-pill" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://medium.com/@ajinkyamagar" class="social-pill" target="_blank" rel="noopener">Medium</a>
-          <a href="https://twitter.com/AjinkyaMagar" class="social-pill" target="_blank" rel="noopener">Twitter</a>
+
+        <div class="photo-card">
+          <img src="x8b4d32phsrmt0cxs5dsw52aym_preview_0-ezremove.png" alt="Ajinkya Magar">
+          <p>MIT AOE - Computer Engineering</p>
         </div>
       </div>
+    </section>
 
-      <!-- Profile Photo — new image -->
-      <div class="hero-photo-wrap">
-        <img
-          src="x8b4d32phsrmt0cxs5dsw52aym_preview_0-ezremove.png"
-          alt="Ajinkya Magar"
-          class="hero-photo"
-          onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22270%22 height=%22270%22 viewBox=%220 0 270 270%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 x2=%221%22 y1=%220%22 y2=%221%22%3E%3Cstop stop-color=%22%231a2236%22/%3E%3Cstop offset=%221%22 stop-color=%22%230f766e%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx=%22135%22 cy=%22135%22 r=%22135%22 fill=%22url(%23g)%22/%3E%3Ccircle cx=%22135%22 cy=%22105%22 r=%2242%22 fill=%22%23f1f5f9%22 opacity=%220.92%22/%3E%3Cpath d=%22M62 236c12-45 42-70 73-70s61 25 73 70%22 fill=%22%23f1f5f9%22 opacity=%220.92%22/%3E%3Ctext x=%22135%22 y=%22148%22 text-anchor=%22middle%22 font-size=%2242%22 font-family=%22Inter,Arial,sans-serif%22 font-weight=%22700%22 fill=%22%2306b6d4%22%3EAM%3C/text%3E%3C/svg%3E'"
-        >
-        <div class="status-badge">
-          <div class="status-dot"></div>
-          MIT AOE · CSE
+    <section id="about">
+      <div class="container">
+        <p class="eyebrow">Who I Am</p>
+        <h2>About Me</h2>
+        <div class="two-column">
+          <div>
+            <p>
+              I am Ajinkya Prabhakar Magar, a Computer Engineering student at
+              MIT Academy of Engineering, Alandi, Pune. I enjoy software
+              development, artificial intelligence, and building useful projects.
+            </p>
+            <p>
+              I have participated in hackathons and coding competitions, winning
+              CodeX 26 for competitive coding and Prompt Wars 2025 for prompt
+              engineering.
+            </p>
+            <p>
+              My projects include an AI Mental Health Chatbot, a Terms of Service
+              Analyser, Campus Buddy, and this portfolio website.
+            </p>
+          </div>
+
+          <ul class="info-list">
+            <li><b>Name:</b> Ajinkya Prabhakar Magar</li>
+            <li><b>College:</b> MIT Academy of Engineering, Pune</li>
+            <li><b>Department:</b> Computer Engineering</li>
+            <li><b>Email:</b> ajinkyamagarphys@gmail.com</li>
+            <li><b>Location:</b> Pimpri, Maharashtra, India</li>
+            <li><b>Status:</b> Open to opportunities</li>
+          </ul>
         </div>
       </div>
+    </section>
 
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="wrap">
-    <div class="section-label">WHO I AM</div>
-    <h2 class="section-title">About <span>Me</span></h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          I'm <strong>Ajinkya Prabhakar Magar</strong>, a Computer Engineering student at <strong>MIT Academy of Engineering, Alandi, Pune</strong>. I'm deeply passionate about software development, artificial intelligence, and building things that solve real problems.
-        </p>
-        <p>
-          I've participated in multiple <strong>hackathons</strong> and coding competitions — winning <strong>CodeX 26</strong> (competitive coding) and <strong>Prompt Wars 2025</strong> (prompt engineering). I built real-world AI projects including a <strong>Mental Health Chatbot</strong>, a <strong>Terms of Service Analyser</strong>, and a <strong>Campus Buddy</strong> assistant.
-        </p>
-        <p>
-          I hold <strong>17+ certificates</strong> from Cisco, IBM, Google, Anthropic, MindLuster, GFG, and IEEE. My digital portfolio: <a href="https://ajinkyamagarphys-jpg.github.io/ct/" target="_blank" rel="noopener">ajinkyamagarphys-jpg.github.io/ct</a>
-        </p>
+    <section id="timeline">
+      <div class="container">
+        <p class="eyebrow">Journey</p>
+        <h2>Timeline</h2>
+        <div class="timeline">
+          <article>
+            <span>Apr 2026</span>
+            <h3>Python Essentials 1 & 2</h3>
+            <p>Completed Cisco Networking Academy Python Essentials 1 and 2 through MIT AOE.</p>
+          </article>
+          <article>
+            <span>2026</span>
+            <h3>AI Fluency Series and Claude 101</h3>
+            <p>Completed four Anthropic certifications covering AI fluency and Claude basics.</p>
+          </article>
+          <article>
+            <span>Mar 2026</span>
+            <h3>Generative AI Workshop</h3>
+            <p>Participated in a GFG Campus Body workshop on generative AI.</p>
+          </article>
+          <article>
+            <span>Jan 2026</span>
+            <h3>CodeX 26 - Winner</h3>
+            <p>Won the competitive coding competition held at MIT Academy of Engineering.</p>
+          </article>
+          <article>
+            <span>2026</span>
+            <h3>Hackathon Projects</h3>
+            <p>Built the TOS Analyser for Nirmaan 4.0 and an AI Mental Health Chatbot for Datathon 2026.</p>
+          </article>
+          <article>
+            <span>Sep 2025</span>
+            <h3>Prompt Wars 2025 - Winner</h3>
+            <p>Won the prompt engineering competition organized by IEEE Student Branch, MIT AOE.</p>
+          </article>
+          <article>
+            <span>Nov-Dec 2025</span>
+            <h3>Linux Certifications</h3>
+            <p>Completed Introduction to Kali Linux Basics and Beginner Linux Complete.</p>
+          </article>
+          <article>
+            <span>Nov 2024</span>
+            <h3>C Programming Bootcamp</h3>
+            <p>Completed a 2-day C programming bootcamp by The Knowledge Network.</p>
+          </article>
+        </div>
       </div>
-      <div>
-        <ul class="info-list">
-          <li><strong>NAME</strong> Ajinkya Prabhakar Magar</li>
-          <li><strong>COLLEGE</strong> MIT Academy of Engineering, Alandi, Pune</li>
-          <li><strong>DEPT</strong> Computer Engineering</li>
-          <li><strong>EMAIL</strong> ajinkyamagarphys@gmail.com</li>
-          <li><strong>LOCATION</strong> Pimpri, Maharashtra, India</li>
-          <li><strong>GITHUB</strong> <a href="https://github.com/ajinkyamagarphys-jpg" target="_blank" rel="noopener">ajinkyamagarphys-jpg</a></li>
-          <li><strong>STATUS</strong> <span style="color:var(--green)">Open to Opportunities</span></li>
-        </ul>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <p class="eyebrow">Credentials</p>
+        <h2>Certifications</h2>
+        <div class="card-grid">
+          <a class="card" href="codeX.pdf" target="_blank" rel="noopener">
+            <span>Competition</span>
+            <h3>CodeX 26 - Winner</h3>
+            <p>IEEE Student Branch, ASSCET, MIT AOE</p>
+            <small>31 January 2026</small>
+          </a>
+          <a class="card" href="PROMPT%20WAR.pdf" target="_blank" rel="noopener">
+            <span>Competition</span>
+            <h3>Prompt Wars 2025 - Winner</h3>
+            <p>IEEE Student Branch, MIT AOE</p>
+            <small>22 September 2025</small>
+          </a>
+          <a class="card" href="Ct/certificate-gra2h7hesmaj-1774718106.pdf" target="_blank" rel="noopener">
+            <span>Anthropic</span>
+            <h3>AI Fluency: Framework & Foundations</h3>
+            <p>Anthropic, UCC, Ringling College, HEA</p>
+            <small>Certificate of Completion</small>
+          </a>
+          <a class="card" href="Ct/certificate-8h6qg96qtgmo-1774716810.pdf" target="_blank" rel="noopener">
+            <span>Anthropic</span>
+            <h3>AI Fluency for Students</h3>
+            <p>Anthropic, UCC, Ringling College, HEA</p>
+            <small>Certificate of Completion</small>
+          </a>
+          <a class="card" href="Ct/certificate-8636j3ovfked-1774717215.pdf" target="_blank" rel="noopener">
+            <span>Anthropic</span>
+            <h3>AI Fluency for Nonprofits</h3>
+            <p>Anthropic and GivingTuesday</p>
+            <small>Certificate of Completion</small>
+          </a>
+          <a class="card" href="Ct/certificate-79sttgc7dxgp-1774717659.pdf" target="_blank" rel="noopener">
+            <span>Anthropic</span>
+            <h3>Claude 101</h3>
+            <p>Anthropic</p>
+            <small>Certificate of Completion</small>
+          </a>
+          <a class="card" href="Python_Essentials_1_certificate_ajinkyamagarphys-gmail-com.pdf" target="_blank" rel="noopener">
+            <span>Programming</span>
+            <h3>Python Essentials 1</h3>
+            <p>Cisco Networking Academy, MIT AOE</p>
+            <small>7 April 2026</small>
+          </a>
+          <a class="card" href="Python_Essentials_2_certificate_ajinkyamagarphys-gmail-com.pdf" target="_blank" rel="noopener">
+            <span>Programming</span>
+            <h3>Python Essentials 2</h3>
+            <p>Cisco Networking Academy, MIT AOE</p>
+            <small>8 April 2026</small>
+          </a>
+          <a class="card" href="javascript.pdf" target="_blank" rel="noopener">
+            <span>Programming</span>
+            <h3>JavaScript Certification</h3>
+            <p>Online Course</p>
+            <small>2025</small>
+          </a>
+          <a class="card" href="c%20bootcamp.png" target="_blank" rel="noopener">
+            <span>Programming</span>
+            <h3>2-Days C Programming Bootcamp</h3>
+            <p>The Knowledge Network</p>
+            <small>11-12 November 2024</small>
+          </a>
+          <a class="card" href="AJINKYA%20MAGAR%20GCSJ.pdf" target="_blank" rel="noopener">
+            <span>Cloud</span>
+            <h3>Google Cloud Study Jams 2026</h3>
+            <p>GDG On Campus, MIT AOE</p>
+            <small>All pathways completed</small>
+          </a>
+          <a class="card" href="Certificate_Ajinkya_Prabhakar_Magar%20Gen%20ai.pdf" target="_blank" rel="noopener">
+            <span>AI</span>
+            <h3>Generative AI Workshop</h3>
+            <p>GFG Campus Body, MIT AOE</p>
+            <small>21 March 2026</small>
+          </a>
+          <a class="card" href="IBMDesign20260318-33-yg666b.pdf" target="_blank" rel="noopener">
+            <span>Career</span>
+            <h3>Career Management Essentials</h3>
+            <p>IBM SkillsBuild</p>
+            <small>18 March 2026</small>
+          </a>
+          <a class="card" href="Introduction_to_Kali_Linux_Basics_9485480.pdf" target="_blank" rel="noopener">
+            <span>Linux</span>
+            <h3>Intro to Kali Linux Basics</h3>
+            <p>Certificate Code: 9485480</p>
+            <small>28 November 2025</small>
+          </a>
+          <a class="card" href="Mindluster_Certificate.pdf" target="_blank" rel="noopener">
+            <span>Linux</span>
+            <h3>Beginner Linux Complete</h3>
+            <p>MindLuster</p>
+            <small>7 December 2025</small>
+          </a>
+          <a class="card" href="Ajinkya_Magar%20nirman.png" target="_blank" rel="noopener">
+            <span>Hackathon</span>
+            <h3>Nirmaan 4.0 Hackathon</h3>
+            <p>GDG On Campus MITAOE, Team Mythos</p>
+            <small>2026</small>
+          </a>
+          <a class="card" href="Datathon-26.pdf" target="_blank" rel="noopener">
+            <span>Hackathon</span>
+            <h3>Datathon 2026</h3>
+            <p>GirlScript Club, MIT AOE, Team Algo-Rhythm</p>
+            <small>2026</small>
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<div class="divider"></div>
-
-<!-- ── TIMELINE ── -->
-<section id="timeline">
-  <div class="wrap">
-    <div class="section-label">JOURNEY</div>
-    <h2 class="section-title">My <span>Timeline</span></h2>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-year">APR 2026</div>
-        <div class="tl-role">Python Essentials 1 &amp; 2 — Cisco Networking Academy</div>
-        <div class="tl-org">MIT Academy of Engineering · Cisco</div>
-        <div class="tl-desc">Completed both Python Essentials 1 (7 Apr) and Python Essentials 2 (8 Apr 2026) through the Cisco Networking Academy program at MIT AOE, Alandi Pune.</div>
+    <section id="skills">
+      <div class="container">
+        <p class="eyebrow">Technical Stack</p>
+        <h2>Skills & Tools</h2>
+        <div class="skill-grid">
+          <div class="card">
+            <h3>Programming</h3>
+            <p>Python, C, JavaScript, HTML, CSS, SQL</p>
+          </div>
+          <div class="card">
+            <h3>AI / Cloud</h3>
+            <p>Generative AI, Prompt Engineering, Claude, Google Cloud, Data Analysis</p>
+          </div>
+          <div class="card">
+            <h3>Tools & OS</h3>
+            <p>Linux, Git, GitHub, Browser Extensions, VS Code, Cisco Networking Academy</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="tl-item">
-        <div class="tl-year">2026 — ANTHROPIC</div>
-        <div class="tl-role">AI Fluency Series &amp; Claude 101 — Anthropic</div>
-        <div class="tl-org">Anthropic · UCC · Ringling College · HEA</div>
-        <div class="tl-desc">Completed four Anthropic certifications: <strong>AI Fluency: Framework &amp; Foundations</strong>, <strong>AI Fluency for Students</strong>, <strong>AI Fluency for Nonprofits</strong>, and <strong>Claude 101</strong>.</div>
+    <section id="projects">
+      <div class="container">
+        <p class="eyebrow">Work</p>
+        <h2>Projects</h2>
+        <div class="card-grid">
+          <article class="card project">
+            <span>01</span>
+            <h3>AI Mental Health Chatbot</h3>
+            <p>Built for Datathon 2026 as Team Algo-Rhythm. It gives empathetic responses, coping techniques, and resource suggestions.</p>
+            <div class="tags">
+              <span>Python</span>
+              <span>AI / NLP</span>
+              <span>Chatbot</span>
+            </div>
+            <a href="https://github.com/ajinkyamagarphys-jpg/mental-health-chatbot" target="_blank" rel="noopener">GitHub Repository</a>
+          </article>
+          <article class="card project">
+            <span>02</span>
+            <h3>TOS Analyser & Summarizer</h3>
+            <p>Built for Nirmaan 4.0 as Team Mythos. It analyzes Terms of Service documents and explains risky clauses in simple language.</p>
+            <div class="tags">
+              <span>Browser Extension</span>
+              <span>AI Summarizer</span>
+              <span>JavaScript</span>
+            </div>
+            <a href="https://github.com/Aazhs/ToS-Analyser" target="_blank" rel="noopener">GitHub Repository</a>
+          </article>
+          <article class="card project">
+            <span>03</span>
+            <h3>Campus Buddy</h3>
+            <p>An AI-powered campus assistant for timetables, events, FAQs, and student resources at MIT AOE.</p>
+            <div class="tags">
+              <span>Python</span>
+              <span>AI Assistant</span>
+              <span>Student Tool</span>
+            </div>
+            <a href="https://github.com/ajinkyamagarphys-jpg/Campus_Buddy" target="_blank" rel="noopener">GitHub Repository</a>
+          </article>
+          <article class="card project">
+            <span>04</span>
+            <h3>Digital Portfolio Website</h3>
+            <p>This responsive portfolio built with simple HTML and CSS, hosted on GitHub Pages.</p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>GitHub Pages</span>
+            </div>
+            <a href="https://ajinkyamagarphys-jpg.github.io/ct/" target="_blank" rel="noopener">Live Website</a>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="tl-item">
-        <div class="tl-year">MAR 2026</div>
-        <div class="tl-role">Generative AI Workshop</div>
-        <div class="tl-org">GFG Campus Body · MIT Academy of Engineering</div>
-        <div class="tl-desc">Participated in the Technical Workshop on "Generative AI: Your Gateway to Creativity &amp; Productivity" on 21 March 2026 (Online Mode).</div>
+    <section id="contact">
+      <div class="container contact">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Let's Connect</h2>
+        <p>Open to internships, collaborations, hackathons, and interesting projects.</p>
+        <a class="email" href="mailto:ajinkyamagarphys@gmail.com">ajinkyamagarphys@gmail.com</a>
+        <div class="socials">
+          <a href="https://linkedin.com/in/ajinkyamagar" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/ajinkyamagarphys-jpg" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://medium.com/@ajinkyamagar" target="_blank" rel="noopener">Medium</a>
+          <a href="https://twitter.com/AjinkyaMagar" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://www.youtube.com/@Ajinkya_p_Magar" target="_blank" rel="noopener">YouTube</a>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div class="tl-item">
-        <div class="tl-year">MAR 2026</div>
-        <div class="tl-role">IBM Career Management Essentials</div>
-        <div class="tl-org">IBM SkillsBuild · Credly verified</div>
-        <div class="tl-desc">Successfully completed Career Management Essentials, issued by IBM SkillsBuild on 18 March 2026.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">JAN 2026 — 🏆 WINNER</div>
-        <div class="tl-role">CodeX 26 — Competitive Coding Competition</div>
-        <div class="tl-org">IEEE Student Branch · ASSCET · MIT AOE</div>
-        <div class="tl-desc">Awarded the title of <strong>Winner</strong> at CodeX 26, held at MIT Academy of Engineering, Alandi, Pune on 31st January 2026.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">2026</div>
-        <div class="tl-role">Google Cloud Study Jams 2026</div>
-        <div class="tl-org">Google Developer Groups On Campus · MIT AOE</div>
-        <div class="tl-desc">Successfully completed all pathways under the Google Cloud Study Jams Program 2026. Certificate of Appreciation issued by GDG MITAOE.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">2026 — HACKATHON</div>
-        <div class="tl-role">Nirmaan 4.0 — TOS Analyser &amp; Summarizer</div>
-        <div class="tl-org">GDG on Campus MITAOE · Team Mythos (Aazhs)</div>
-        <div class="tl-desc">Built a <strong>Terms of Service Analyser &amp; Summarizer</strong> browser extension with dashboard as part of Team Mythos for Nirmaan 4.0 Hackathon in the CODE CRAFTERS category.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">2026 — HACKATHON</div>
-        <div class="tl-role">Datathon 2026 — AI Mental Health Chatbot</div>
-        <div class="tl-org">GirlScript Club · MIT AOE · Team Algo-Rhythm</div>
-        <div class="tl-desc">Built an <strong>AI-powered Mental Health Chatbot</strong> as Team Algo-Rhythm for Datathon_2026, organized by MIT Academy of Engineering.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">SEP 2025 — 🏆 WINNER</div>
-        <div class="tl-role">Prompt Wars 2025 — Prompt Engineering</div>
-        <div class="tl-org">IEEE Student Branch · MIT AOE · 22 Sep 2025</div>
-        <div class="tl-desc">Won the Prompt Wars 2025 Prompt Engineering Competition held at MIT Academy of Engineering, Alandi, Pune. Commended for exemplary performance.</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">NOV–DEC 2025</div>
-        <div class="tl-role">Linux Certifications</div>
-        <div class="tl-org">Kali Linux Course · MindLuster</div>
-        <div class="tl-desc">Completed <strong>Introduction to Kali Linux Basics</strong> (28 Nov 2025, Code: 9485480) and <strong>Beginner Linux Complete</strong> (MindLuster, 7 Dec 2025, No. 66c57d6c).</div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-year">NOV 2024</div>
-        <div class="tl-role">2-Days C Programming Bootcamp</div>
-        <div class="tl-org">The Knowledge Network (TKN) · 11–12 November</div>
-        <div class="tl-desc">Participated in the C Programming Bootcamp by TKN, focusing on core programming concepts, hands-on coding, and logical problem-solving in C language.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── CERTIFICATIONS ── -->
-<section id="certifications">
-  <div class="wrap">
-    <div class="section-label">CREDENTIALS</div>
-    <h2 class="section-title">Certifi<span>cations</span></h2>
-    <div class="cert-grid">
-
-      <!-- ACHIEVEMENTS / WINS -->
-      <div class="cert-group-heading">🏆 COMPETITIONS WON</div>
-
-      <a href="codeX.pdf" class="cert-card achievement" target="_blank" rel="noopener">
-        <div class="cert-icon">🏆</div>
-        <div class="cert-details">
-          <div class="cert-name">CodeX 26 — Winner</div>
-          <div class="cert-issuer">IEEE Student Branch · ASSCET · MIT AOE</div>
-          <div class="cert-date">31 January 2026</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="PROMPT%20WAR.pdf" class="cert-card achievement" target="_blank" rel="noopener">
-        <div class="cert-icon">🎯</div>
-        <div class="cert-details">
-          <div class="cert-name">Prompt Wars 2025 — Winner</div>
-          <div class="cert-issuer">IEEE Student Branch · MIT AOE</div>
-          <div class="cert-date">22 September 2025</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <!-- ANTHROPIC -->
-      <div class="cert-group-heading">🤖 ANTHROPIC — AI FLUENCY SERIES</div>
-
-      <a href="Ct/certificate-gra2h7hesmaj-1774718106.pdf" class="cert-card anthropic" target="_blank" rel="noopener">
-        <div class="cert-icon">🧠</div>
-        <div class="cert-details">
-          <div class="cert-name">AI Fluency: Framework &amp; Foundations</div>
-          <div class="cert-issuer">Anthropic · UCC · Ringling College · HEA</div>
-          <div class="cert-date">Certificate of Completion</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Ct/certificate-8h6qg96qtgmo-1774716810.pdf" class="cert-card anthropic" target="_blank" rel="noopener">
-        <div class="cert-icon">🎓</div>
-        <div class="cert-details">
-          <div class="cert-name">AI Fluency for Students</div>
-          <div class="cert-issuer">Anthropic · UCC · Ringling College · HEA</div>
-          <div class="cert-date">Certificate of Completion</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Ct/certificate-8636j3ovfked-1774717215.pdf" class="cert-card anthropic" target="_blank" rel="noopener">
-        <div class="cert-icon">🌍</div>
-        <div class="cert-details">
-          <div class="cert-name">AI Fluency for Nonprofits</div>
-          <div class="cert-issuer">Anthropic · GivingTuesday</div>
-          <div class="cert-date">Certificate of Completion</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Ct/certificate-79sttgc7dxgp-1774717659.pdf" class="cert-card anthropic" target="_blank" rel="noopener">
-        <div class="cert-icon">⚡</div>
-        <div class="cert-details">
-          <div class="cert-name">Claude 101</div>
-          <div class="cert-issuer">Anthropic</div>
-          <div class="cert-date">Certificate of Completion</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <!-- PROGRAMMING -->
-      <div class="cert-group-heading">💻 PROGRAMMING & DEVELOPMENT</div>
-
-      <a href="Python_Essentials_1_certificate_ajinkyamagarphys-gmail-com.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🐍</div>
-        <div class="cert-details">
-          <div class="cert-name">Python Essentials 1</div>
-          <div class="cert-issuer">Cisco Networking Academy · MIT AOE</div>
-          <div class="cert-date">07 April 2026 · ID: 0a98a0d6</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Python_Essentials_2_certificate_ajinkyamagarphys-gmail-com.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🐍</div>
-        <div class="cert-details">
-          <div class="cert-name">Python Essentials 2</div>
-          <div class="cert-issuer">Cisco Networking Academy · MIT AOE</div>
-          <div class="cert-date">08 April 2026 · ID: 535800a4</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="javascript.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🌐</div>
-        <div class="cert-details">
-          <div class="cert-name">JavaScript Certification</div>
-          <div class="cert-issuer">Online Course</div>
-          <div class="cert-date">2025</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="c%20bootcamp.png" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">💻</div>
-        <div class="cert-details">
-          <div class="cert-name">2-Days C Programming Bootcamp</div>
-          <div class="cert-issuer">The Knowledge Network (TKN)</div>
-          <div class="cert-date">11–12 November 2024</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <!-- CLOUD & AI -->
-      <div class="cert-group-heading">☁️ CLOUD & AI</div>
-
-      <a href="AJINKYA%20MAGAR%20GCSJ.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">☁️</div>
-        <div class="cert-details">
-          <div class="cert-name">Google Cloud Study Jams 2026</div>
-          <div class="cert-issuer">GDG On Campus · MIT AOE</div>
-          <div class="cert-date">2026 — All pathways completed</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Certificate_Ajinkya_Prabhakar_Magar%20Gen%20ai.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🤖</div>
-        <div class="cert-details">
-          <div class="cert-name">Generative AI Workshop</div>
-          <div class="cert-issuer">GFG Campus Body · MIT AOE</div>
-          <div class="cert-date">21 March 2026</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="IBMDesign20260318-33-yg666b.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">💼</div>
-        <div class="cert-details">
-          <div class="cert-name">Career Management Essentials</div>
-          <div class="cert-issuer">IBM SkillsBuild · Credly verified</div>
-          <div class="cert-date">18 March 2026</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <!-- LINUX / SECURITY -->
-      <div class="cert-group-heading">🐧 LINUX & SECURITY</div>
-
-      <a href="Introduction_to_Kali_Linux_Basics_9485480.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🔐</div>
-        <div class="cert-details">
-          <div class="cert-name">Intro to Kali Linux Basics</div>
-          <div class="cert-issuer">Code: 9485480</div>
-          <div class="cert-date">28 November 2025</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Mindluster_Certificate.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🐧</div>
-        <div class="cert-details">
-          <div class="cert-name">Beginner Linux Complete</div>
-          <div class="cert-issuer">MindLuster · No. 66c57d6c</div>
-          <div class="cert-date">07 December 2025</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <!-- HACKATHONS -->
-      <div class="cert-group-heading">⚡ HACKATHONS & EVENTS</div>
-
-      <a href="Ajinkya_Magar%20nirman.png" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">🔨</div>
-        <div class="cert-details">
-          <div class="cert-name">Nirmaan 4.0 Hackathon</div>
-          <div class="cert-issuer">GDG On Campus MITAOE · Team Mythos</div>
-          <div class="cert-date">2026 — CODE CRAFTERS</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-      <a href="Datathon-26.pdf" class="cert-card" target="_blank" rel="noopener">
-        <div class="cert-icon">📊</div>
-        <div class="cert-details">
-          <div class="cert-name">Datathon 2026</div>
-          <div class="cert-issuer">GirlScript Club · MIT AOE · Team Algo-Rhythm</div>
-          <div class="cert-date">2026</div>
-          <span class="cert-link">View certificate</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── SKILLS ── -->
-<section id="skills">
-  <div class="wrap">
-    <div class="section-label">TECHNICAL STACK</div>
-    <h2 class="section-title">Skills &amp;<span> Tools</span></h2>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="skill-group-title">PROGRAMMING</div>
-        <ul class="skill-list">
-          <li>Python</li>
-          <li>C Language</li>
-          <li>JavaScript</li>
-          <li>HTML &amp; CSS</li>
-          <li>SQL</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">AI / CLOUD</div>
-        <ul class="skill-list">
-          <li>Generative AI</li>
-          <li>Prompt Engineering</li>
-          <li>Claude · Anthropic</li>
-          <li>Google Cloud Platform</li>
-          <li>Data Analysis</li>
-        </ul>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">TOOLS &amp; OS</div>
-        <ul class="skill-list">
-          <li>Linux (Kali &amp; Ubuntu)</li>
-          <li>Git &amp; GitHub</li>
-          <li>Browser Extensions</li>
-          <li>VS Code</li>
-          <li>Cisco Networking Academy</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── PROJECTS ── -->
-<section id="projects">
-  <div class="wrap">
-    <div class="section-label">WORK</div>
-    <h2 class="section-title">My <span>Projects</span></h2>
-    <div class="proj-grid">
-
-      <!-- Project 1 -->
-      <div class="proj-card">
-        <div class="proj-num">01 /</div>
-        <div class="proj-title">AI Mental Health Chatbot</div>
-        <div class="proj-desc">
-          Built for Datathon 2026 as Team Algo-Rhythm. An AI-powered chatbot designed to support mental health conversations — providing empathetic responses, coping techniques, and resource suggestions.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">AI / NLP</span>
-          <span class="proj-tag">Chatbot</span>
-          <span class="proj-tag">Datathon 2026</span>
-        </div>
-        <a href="https://github.com/ajinkyamagarphys-jpg/mental-health-chatbot" class="proj-github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          github.com/ajinkyamagarphys-jpg/mental-health-chatbot
-        </a>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="proj-card">
-        <div class="proj-num">02 /</div>
-        <div class="proj-title">TOS Analyser &amp; Summarizer</div>
-        <div class="proj-desc">
-          Built for Nirmaan 4.0 Hackathon as Team Mythos. A browser extension + dashboard that analyses and summarizes Terms of Service documents, highlighting risky clauses in plain language.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Browser Extension</span>
-          <span class="proj-tag">AI Summarizer</span>
-          <span class="proj-tag">JavaScript</span>
-          <span class="proj-tag">Nirmaan 4.0</span>
-        </div>
-        <a href="https://github.com/Aazhs/ToS-Analyser" class="proj-github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          github.com/Aazhs/ToS-Analyser
-        </a>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="proj-card">
-        <div class="proj-num">03 /</div>
-        <div class="proj-title">Campus Buddy</div>
-        <div class="proj-desc">
-          An AI-powered campus assistant to help students navigate college life — from timetables and events to FAQs and campus resources. Built to improve student experience at MIT AOE.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">AI Assistant</span>
-          <span class="proj-tag">Chatbot</span>
-          <span class="proj-tag">Student Tool</span>
-        </div>
-        <a href="https://github.com/ajinkyamagarphys-jpg/Campus_Buddy" class="proj-github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          github.com/ajinkyamagarphys-jpg/Campus_Buddy
-        </a>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="proj-card">
-        <div class="proj-num">04 /</div>
-        <div class="proj-title">Digital Portfolio Website</div>
-        <div class="proj-desc">
-          This portfolio website — built using pure HTML and CSS (no frameworks, no JavaScript). Hosted on GitHub Pages. Showcases all certifications, projects, skills and timeline.
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">HTML</span>
-          <span class="proj-tag">CSS</span>
-          <span class="proj-tag">GitHub Pages</span>
-          <span class="proj-tag">Responsive</span>
-        </div>
-        <a href="https://ajinkyamagarphys-jpg.github.io/ct/" class="proj-github" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          ajinkyamagarphys-jpg.github.io/ct
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="wrap">
-    <div class="section-label">GET IN TOUCH</div>
-    <h2 class="section-title" style="text-align:center">Let's <span>Connect</span></h2>
-    <div class="contact-box">
-      <p class="contact-desc">
-        Open to collaborations, internships, hackathons, and exciting projects. Feel free to reach out!
-      </p>
-      <a href="mailto:ajinkyamagarphys@gmail.com" class="contact-email">
-        ajinkyamagarphys@gmail.com
-      </a>
-      <div class="social-row" style="justify-content:center">
-        <a href="https://linkedin.com/in/ajinkyamagar" class="social-pill" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/ajinkyamagarphys-jpg" class="social-pill" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://medium.com/@ajinkyamagar" class="social-pill" target="_blank" rel="noopener">Medium</a>
-        <a href="https://twitter.com/AjinkyaMagar" class="social-pill" target="_blank" rel="noopener">Twitter</a>
-        <a href="https://www.youtube.com/@Ajinkya_p_Magar" class="social-pill" target="_blank" rel="noopener">YouTube</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-<footer>
-  <p>© 2026 <span>Ajinkya Magar</span> · MIT AOE, Pune</p>
-  <p>Built with <span>HTML &amp; CSS only</span></p>
-</footer>
-
+  <footer>
+    <p>2026 Ajinkya Magar - MIT AOE, Pune</p>
+    <p>Built with HTML and CSS</p>
+  </footer>
 </body>
 </html>
